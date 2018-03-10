@@ -22,12 +22,12 @@ export const leapDayOccursInSchedule = (startDay = '01-01', currentDay = new Dat
   const dateString = formatDateToString(currentDay);
   const integerCurrent = findIndexFromDateString(dateString);
   if (integerStart <= feb28) {
-    if (integerCurrent <= feb28 && integerCurrent < integerStart) {
+    if (integerCurrent < integerStart) {
       return isLeapYear(currentDay.getFullYear() - 1);
     }
     return isLeapYear(currentDay.getFullYear());
   } else if (integerStart > feb28) {
-    if (integerCurrent <= feb28 || integerCurrent < integerStart) {
+    if (integerCurrent < integerStart) {
       return isLeapYear(currentDay.getFullYear());
     }
     return isLeapYear(currentDay.getFullYear() + 1);
