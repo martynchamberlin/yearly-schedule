@@ -19,13 +19,17 @@ export const leapDayOccursInSchedule = (startDay = '01-01', currentDay = new Dat
   // a core library to actually use.
   const days = getDaysForYear(currentDay);
   const integerStart = findIndexFromDateString(startDay);
-  const integerCurrent = findIndexFromDateString(formatDateToString(currentDay));
+  const dateString = formatDateToString(currentDay);
+  const integerCurrent = findIndexFromDateString(dateString);
   if (integerStart <= feb28) {
     if (integerCurrent <= feb28 && integerCurrent < integerStart) {
       return isLeapYear(currentDay.getFullYear() - 1);
     }
     return isLeapYear(currentDay.getFullYear());
   } else if (integerStart > feb28) {
-
+    if (integerCurrent <= feb28) {
+      return isLeapYear(currentDay.getFullYear());
+    }
+    return isLeapYear(currentDay.getFullYear() + 1);
   }
 };

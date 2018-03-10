@@ -7,7 +7,7 @@ import { pad } from './pad';
  * @return {string}
  */
 export const formatDateToString = (date) => {
-  const month = pad(date.getMonth() + 1);
-  const dayOfMonth = pad(date.getDate());
+  const month = pad(date.getUTCMonth() + 1);
+  const dayOfMonth = pad(date.getUTCDate());
   return `${month}-${dayOfMonth}`;
 };
