@@ -1,0 +1,22 @@
+{
+  "name": "yearly-schedule",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/martynchamberlin/yearly-schedule.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/martynchamberlin/yearly-schedule/issues"
+  },
+  "homepage": "https://github.com/martynchamberlin/yearly-schedule#readme",
+  "devDependencies": {
+    "jest": "^22.4.2"
+  }
+}
