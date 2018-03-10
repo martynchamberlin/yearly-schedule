@@ -6,9 +6,8 @@ describe('leapDayOccursInSchedule', () => {
   const sampleRangesWithLeapYear = [...sampleRanges, '02-29'];
 
   test('Should occur in schedule with start date of January 1 and any current day', () => {
-    const date = createLeapYear('01-01');
     sampleRanges.forEach((range) => {
-      expect(leapDayOccursInSchedule(range, date)).toEqual(true);
+      expect(leapDayOccursInSchedule('01-01', createLeapYear(range))).toEqual(true);
     });
   });
 });

@@ -1,4 +1,6 @@
 import { isLeapYear } from './is-leap-year';
+import { pad } from './pad';
+import { formatDateToString } from './format-date-to-string';
 
 /**
  * Computes an array of all the days of the a given year.
@@ -17,9 +19,7 @@ export const getDaysForYear = (date = new Date()) => {
   let seconds = new Date(`Jan 1, ${new Date(date.getTime()).getFullYear()}`).getTime();
   while (i < limit) {
     const day = new Date(seconds);
-    const month = `0${day.getMonth() + 1}`.substr(-2);
-    const dayOfMonth = `0${day.getDate()}`.substr(-2);
-    days.push({ format: `${month}-${dayOfMonth}` });
+    days.push({ format: formatDateToString(day) });
     seconds += oneDay;
     i++;
   }
