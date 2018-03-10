@@ -27,7 +27,7 @@ export const leapDayOccursInSchedule = (startDay = '01-01', currentDay = new Dat
     }
     return isLeapYear(currentDay.getFullYear());
   } else if (integerStart > feb28) {
-    if (integerCurrent <= feb28) {
+    if (integerCurrent <= feb28 || integerCurrent < integerStart) {
       return isLeapYear(currentDay.getFullYear());
     }
     return isLeapYear(currentDay.getFullYear() + 1);
