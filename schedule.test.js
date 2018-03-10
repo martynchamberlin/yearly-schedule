@@ -19,9 +19,24 @@ describe('getDays', () => {
   })
 });
 
-describe('leapDayOccursInSchedule', () => {
-  test('Should occur in schedule with start date of January 1 and any current day', () => {
-    const date = helpers.createLeapYear('01-01');
-    expect(schedule.leapDayOccursInSchedule('01-01', date)).toEqual(true);
-  })
+describe('findIndexFromDateString', () => {
+  test('should be able to perform reverse of getDays', () => {
+    expect(schedule.findIndexFromDateString('01-01')).toEqual(0);
+    expect(schedule.findIndexFromDateString('02-15')).toEqual(45);
+
+    expect(schedule.findIndexFromDateString('02-29', helpers.createLeapYear('02-29'))).toEqual(59);
+    expect(schedule.findIndexFromDateString('02-29', helpers.createNonLeapYear('02-29'))).toEqual(58);
+  });
 });
+
+// describe('leapDayOccursInSchedule', () => {
+//   const sampleRanges = ['01-01', '01-02', '02-28', '03-01', '12-30', '12-31'];
+//   const sampleRangesWithLeapYear = [...sampleRanges, '02-29'];
+
+//   test('Should occur in schedule with start date of January 1 and any current day', () => {
+//     const date = helpers.createLeapYear('01-01');
+//     sampleRanges.forEach((range) => {
+//       expect(schedule.leapDayOccursInSchedule(range, date)).toEqual(true);
+//     });
+//   });
+// });
