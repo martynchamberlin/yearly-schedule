@@ -73,4 +73,12 @@ describe('leapDayOccursInSchedule', () => {
     expect(leapDayOccursInSchedule('12-10', createYearWithUpcomingLeapYear('12-31'))).toEqual(true);
     expect(leapDayOccursInSchedule('12-10', createLeapYear('01-01'))).toEqual(true);
   });
+
+  test('Start date of January 2', () => {
+    expect(leapDayOccursInSchedule('01-02', createLeapYear('01-01'))).toEqual(false);
+  });
+
+  test('Start date of January 1', () => {
+    expect(leapDayOccursInSchedule('01-01', createLeapYear('01-01'))).toEqual(true);
+  });
 });
